@@ -1,12 +1,11 @@
 #include <cassert>
 #include <iostream>
 #include "tests.h"
-#include <slimio/http/request.h>
+#include <slimIO/http/request.h>
 
 bool assert_request_parses(std::string request_string) {
-	std::cout << "preparing to run test 1\n";
 	std::cout << "\trequest string => " << request_string << std::endl;
-	slimio::http::Request request(request_string);
+	slimIO::http::Request request(request_string);
 	std::cout << "\trequest protocol => " << request.protocol() << std::endl;
 	assert(request.protocol().length() == 4 || request.protocol().length() == 5);
 	assert(request.protocol() == "http" || request.protocol() == "https");
