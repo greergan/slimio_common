@@ -5,8 +5,11 @@
 #include <netinet/in.h>
 #include <stdexcept>
 #include <string>
-#include <slimio/utilities.h>
-bool slimio::utilities::get_bool_value_from_string(char* value) {
+#include <slimIO/utilities.h>
+int slimIO::utilities::bind_to_host(std::string ip_address, int port) {
+
+}
+bool slimIO::utilities::get_bool_value_from_string(char* value) {
 	if(value) {
 		std::string string_value(value);
 		std::transform(string_value.begin(), string_value.end(), string_value.begin(), ::tolower);
@@ -25,7 +28,7 @@ bool slimio::utilities::get_bool_value_from_string(char* value) {
 	}
 	return false;
 }
-std::string slimio::utilities::get_ip_address(std::string host) {
+std::string slimIO::utilities::get_ip_address(std::string host) {
 	std::string ip_address;
 	hostent* host_ent = gethostbyname(host.c_str());
 	if(host_ent != NULL) {
@@ -34,15 +37,15 @@ std::string slimio::utilities::get_ip_address(std::string host) {
 	}
 	return ip_address;
 }
-int slimio::utilities::get_int_value_from_string(char* value) {
+int slimIO::utilities::get_int_value_from_string(char* value) {
 	std::string string_value{value};
 	return get_int_value_from_string(string_value);
 }
-int slimio::utilities::get_int_value_from_string(std::string* value) {
+int slimIO::utilities::get_int_value_from_string(std::string* value) {
 	std::string string_value{value->c_str()};
 	return get_int_value_from_string(string_value);
 }
-int slimio::utilities::get_int_value_from_string(std::string value) {
+int slimIO::utilities::get_int_value_from_string(std::string value) {
 	if(!value.empty()) {
         try {
             return std::stoi(value);

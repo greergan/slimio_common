@@ -1,12 +1,12 @@
-#ifndef __SLIMIO__HTTP__REQUEST__H
-#define __SLIMIO__HTTP__REQUEST__H
-#include <slimio/http/headers.h>
-namespace slimio::http {
+#ifndef __slimIO__HTTP__REQUEST__H
+#define __slimIO__HTTP__REQUEST__H
+#include <slimIO/http/headers.h>
+namespace slimIO::http {
 	struct Request {
 		Request(void);
 		Request(char* request_pointer);
 		Request(std::string& request_string);
-		slimio::http::Headers& headers(void);
+		slimIO::http::Headers& headers(void);
 		void body(std::string value);
 		void body(std::string* value);
 		std::string& body(void);

@@ -2,9 +2,9 @@
 #include <sstream>
 #include <strstream>
 #include <string>
-#include <slimio/http/parser.h>
-#include <slimio/utilities.h>
-static void slimio::http::parser::parse_line_1(std::string& line_1_string, slimio::http::Request* request) {
+#include <slimIO/http/parser.h>
+#include <slimIO/utilities.h>
+static void slimIO::http::parser::parse_line_1(std::string& line_1_string, slimIO::http::Request* request) {
 	std::string temp_string_to_lower = line_1_string;
 	std::transform(temp_string_to_lower.begin(), temp_string_to_lower.end(), temp_string_to_lower.begin(), ::tolower);
 	if(temp_string_to_lower.find("http://") || temp_string_to_lower.find("https://")) {
@@ -23,7 +23,7 @@ static void slimio::http::parser::parse_line_1(std::string& line_1_string, slimi
 			}
 			int host_token_position = request->host().find(":");
 			if(host_token_position) {
-				int port = slimio::utilities::get_int_value_from_string(request->host());
+				int port = slimIO::utilities::get_int_value_from_string(request->host());
 				request->port(port > -1 ? port : 80);
 				request->host(request->host().substr(0, host_token_position));
 			}
@@ -43,7 +43,7 @@ static void slimio::http::parser::parse_line_1(std::string& line_1_string, slimi
 		}
 	}
 }
-void slimio::http::parser::parse_http_request(const char* request_pointer, slimio::http::Request* request) {
+void slimIO::http::parser::parse_http_request(const char* request_pointer, slimIO::http::Request* request) {
 	std::stringstream request_stream;
 	request_stream << request_pointer;
 	std::string line;
@@ -68,6 +68,6 @@ void slimio::http::parser::parse_http_request(const char* request_pointer, slimi
 		}
     }
 }
-void slimio::http::parser::parse_http_request(std::string& request_string, slimio::http::Request* request) {
+void slimIO::http::parser::parse_http_request(std::string& request_string, slimIO::http::Request* request) {
 	parse_http_request(request_string.c_str(), request);
 }

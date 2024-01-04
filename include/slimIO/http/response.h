@@ -1,7 +1,7 @@
-#ifndef __SLIMIO__HTTP__RESPONSE__H
-#define __SLIMIO__HTTP__RESPONSE__H
-#include <slimio/http/headers.h>
-namespace slimio::http {
+#ifndef __slimIO__HTTP__RESPONSE__H
+#define __slimIO__HTTP__RESPONSE__H
+#include <slimIO/http/headers.h>
+namespace slimIO::http {
 	struct Response {
 		void body(std::string value);
 		void body(std::string* value);

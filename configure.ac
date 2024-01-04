@@ -1,5 +1,5 @@
 AC_COPYRIGHT([[Copyright 2023 Jeff Greer. All rights reserved. Restrictions apply, see COPYRIGHT and LICENSE files.]])
-AC_INIT([slimio_commong], [0.1.0])
+AC_INIT([slimIO_common], [0.1.0])
 AC_LANG_PUSH([C++])
 PKG_PROG_PKG_CONFIG
 cwd=`pwd`

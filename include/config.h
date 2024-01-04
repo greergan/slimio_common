@@ -41,10 +41,10 @@
 #define PACKAGE_BUGREPORT ""
 
 /* Define to the full name of this package. */
-#define PACKAGE_NAME "slimio_commong"
+#define PACKAGE_NAME "slimIO_commong"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "slimio_commong 0.1.0"
+#define PACKAGE_STRING "slimIO_commong 0.1.0"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "slimio_commong"
