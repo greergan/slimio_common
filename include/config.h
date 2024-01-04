@@ -35,19 +35,19 @@
 #define LT_OBJDIR ".libs/"
 
 /* Name of package */
-#define PACKAGE "slimio_commong"
+#define PACKAGE "slimio_common"
 
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT ""
 
 /* Define to the full name of this package. */
-#define PACKAGE_NAME "slimIO_commong"
+#define PACKAGE_NAME "slimIO_common"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "slimIO_commong 0.1.0"
+#define PACKAGE_STRING "slimIO_common 0.1.0"
 
 /* Define to the one symbol short name of this package. */
-#define PACKAGE_TARNAME "slimio_commong"
+#define PACKAGE_TARNAME "slimio_common"
 
 /* Define to the home page for this package. */
 #define PACKAGE_URL ""
