@@ -7,6 +7,9 @@ namespace slimio::http {
 		Request(char* request_pointer);
 		Request(std::string& request_string);
 		slimio::http::Headers& headers(void);
+		void body(std::string value);
+		void body(std::string* value);
+		std::string& body(void);
 		void host(std::string value);
 		void host(std::string* value);
 		std::string& host(void);
@@ -25,6 +28,7 @@ namespace slimio::http {
 		void version(std::string* value);
 		std::string& version(void);
 		private:
+			std::string body_string;
 			std::string host_string;
 			std::string method_string;
 			std::string path_string;

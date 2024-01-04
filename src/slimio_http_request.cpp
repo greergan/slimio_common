@@ -17,6 +17,15 @@ slimio::http::Request::Request(std::string& request_string) {
 slimio::http::Headers& slimio::http::Request::headers(void) {
 	return headers_map;
 }
+void slimio::http::Request::body(std::string value) {
+	body_string = value;
+}
+void slimio::http::Request::body(std::string* value) {
+	body_string = std::string(*value);
+}
+std::string& slimio::http::Request::body(void) {
+	return body_string;
+}
 void slimio::http::Request::host(std::string value) {
 	host_string = value;
 }
@@ -26,7 +35,6 @@ void slimio::http::Request::host(std::string* value) {
 std::string& slimio::http::Request::host(void) {
 	return host_string;
 }
-
 void slimio::http::Request::method(std::string value) {
 	method_string = value;
 }
