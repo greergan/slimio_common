@@ -5,9 +5,29 @@
 #include <netinet/in.h>
 #include <stdexcept>
 #include <string>
+#include <sys/socket.h>
+#include <unistd.h>
 #include <slimIO/utilities.h>
 int slimIO::utilities::bind_to_host(std::string ip_address, int port) {
-
+	int socket_handle;
+	int opt = 1;
+	struct sockaddr_in server_address;
+	server_address.sin_family = AF_INET;
+	server_address.sin_port = ntohs(port);
+    if((socket_handle = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+		throw std::runtime_error("Socket creation error");
+    }
+	if(setsockopt(socket_handle, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt))) {
+        perror("setsockopt");
+		throw std::runtime_error("Error setting socket option to " + std::to_string(opt));
+    }
+    if(inet_pton(AF_INET, ip_address.c_str(), &server_address.sin_addr) <= 0) {
+		throw std::runtime_error("IP address error => " + ip_address);
+    }
+    if(connect(socket_handle, (struct sockaddr*)&server_address, sizeof(server_address)) < 0) {
+		throw std::runtime_error("Unable to connect to server using => " + ip_address + " on port " + std::to_string(port));
+    }
+	return socket_handle;
 }
 bool slimIO::utilities::get_bool_value_from_string(char* value) {
 	if(value) {
