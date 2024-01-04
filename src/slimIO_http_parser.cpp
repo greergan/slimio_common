@@ -27,6 +27,8 @@ static void slimIO::http::parser::parse_line_1(std::string& line_1_string, slimI
 				request->port(port > -1 ? port : 80);
 				request->host(request->host().substr(0, host_token_position));
 			}
+			request->method("GET");
+			request->version("HTTP/1.1");
 		}
 	}
 	else {
