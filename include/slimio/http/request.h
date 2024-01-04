@@ -7,9 +7,17 @@ namespace slimio::http {
 		Request(char* request_pointer);
 		Request(std::string& request_string);
 		slimio::http::Headers& headers(void);
+		void host(std::string value);
+		void host(std::string* value);
+		std::string& host(void);
 		void path(std::string value);
 		void path(std::string* value);
 		std::string& path(void);
+		int& port(void);
+		void port(int value);
+		void protocol(std::string value);
+		void protocol(std::string* value);
+		std::string& protocol(void);
 		void method(std::string value);
 		void method(std::string* value);
 		std::string& method(void);
@@ -17,12 +25,12 @@ namespace slimio::http {
 		void version(std::string* value);
 		std::string& version(void);
 		private:
+			std::string host_string;
 			std::string method_string;
 			std::string path_string;
-			std::string version_string;
-			std::string host_string;
 			std::string protocol_string;
-			int port;
+			std::string version_string;
+			int port_value;
 			Headers headers_map;
 	};
 };
