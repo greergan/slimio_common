@@ -4,6 +4,7 @@ AC_LANG_PUSH([C++])
 PKG_PROG_PKG_CONFIG
 cwd=`pwd`
 CPPFLAGS="-I$cwd/include $CPPFLAGS"
+LDFLAGS="-L$cwd/src/.libs $LDFLAGS"
 AC_SUBST(CPPFLAGS)
 AC_SUBST(LDFLAGS)
 AM_INIT_AUTOMAKE
@@ -12,6 +13,7 @@ AC_CONFIG_HEADERS([include/config.h])
 AC_CONFIG_FILES([
 	Makefile
 	src/Makefile
+	tests/Makefile
 ])
 LT_INIT
 AC_OUTPUT

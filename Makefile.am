@@ -1,3 +1,3 @@
-SUBDIRS = src
-lib:
-	@cd src && make
+SUBDIRS = src tests
+tests:
+	@cd tests && make && tests
