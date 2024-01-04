@@ -23,7 +23,7 @@ static void slimio::http::parser::parse_line_1(std::string& line_1_string, slimi
 			}
 			int host_token_position = request->host().find(":");
 			if(host_token_position) {
-				int port = slimio::utilities::get_int_value(request->host());
+				int port = slimio::utilities::get_int_value_from_string(request->host());
 				request->port(port > -1 ? port : 80);
 				request->host(request->host().substr(0, host_token_position));
 			}
