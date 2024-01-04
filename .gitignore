@@ -1,5 +1,9 @@
 # http://www.gnu.org/software/automake
 
+tests/tests
+libtool
+settings.json
+*~
 Makefile.in
 /ar-lib
 /mdate-sh
